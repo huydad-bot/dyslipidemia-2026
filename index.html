@@ -1416,8 +1416,8 @@
         <div class="flow-node decision">CK 측정; 갑상선 기능·비타민D·신기능 확인</div>
         <div class="flow-arrow">↓</div>
         <div class="flow-row">
-          <div class="flow-node action">CK 정상, 경미한 증상 → 같은 statin 계속 or 다른 statin으로 교체</div>
-          <div class="flow-node warn">CK &gt;4×ULN → statin 중단, 2–4주 후 재평가</div>
+          <div class="flow-node action">CK 정상 또는 경미한 증상 → statin 교체·감량; 이차 원인 교정</div>
+          <div class="flow-node warn">CK ≥10×ULN + 증상/근력저하 → statin 즉시 중단; 지속 시 신경과 협진</div>
         </div>
         <div class="flow-arrow">↓</div>
         <div class="flow-node action">증상 해소 후 동일/다른 statin 재투여 (저용량부터)</div>
@@ -1426,7 +1426,7 @@
       </div>
       <div class="alert alert-danger" style="margin-top:6px">
         <span>⚠️</span>
-        <div>CK &gt;10×ULN + 증상 = 근육병증 → 즉시 중단. CK &gt;40×ULN = 횡문근융해 → 즉시 입원, 수액</div>
+        <div>CK ≥10×ULN + 증상/근력저하 = 근육병증(myopathy) → statin 즉시 중단, 지속 시 신경과 협진 (SIMNM 감별). 횡문근융해 = CK &gt;10×ULN + <strong>신손상(Cr 상승)</strong> → 즉시 입원, 수액 치료.</div>
       </div>
     </div>
   </div>
@@ -1972,13 +1972,13 @@
           <table class="bp-table" style="font-size:11px">
             <thead><tr><th>CK 수준</th><th>조치</th></tr></thead>
             <tbody>
-              <tr><td>정상</td><td>statin 지속 또는 다른 statin으로 교체</td></tr>
-              <tr><td>&gt;4×ULN</td><td>statin 중단, 2–4주 후 재평가</td></tr>
-              <tr><td>&gt;10×ULN + 증상</td><td>근육병증 — 즉시 중단, 신기능 모니터링</td></tr>
-              <tr><td>&gt;40×ULN</td><td>횡문근융해 — 즉시 입원, 수액 치료</td></tr>
+              <tr><td>정상 (증상 동반 가능)</td><td>이차 원인 감별; statin 교체·감량 고려</td></tr>
+              <tr><td>&gt;ULN + 증상/근력저하</td><td>Myositis/Myopathy — statin 중단 고려, 모니터링</td></tr>
+              <tr><td>≥10×ULN + 증상</td><td>Myopathy (중증) — statin <strong>즉시 중단</strong>; 지속 시 신경과 협진 (SIMNM 감별)</td></tr>
+              <tr><td>&gt;10×ULN + <strong>신손상</strong> (Cr↑)</td><td>횡문근융해 — 즉시 입원, 수액 치료, 신기능 모니터링</td></tr>
             </tbody>
           </table>
-          <p style="font-size:10px;color:var(--text2);margin-top:4px">statin 중단 후 CK 지속 상승 시 → 신경과 협진 (스타틴 유발 면역매개 괴사근병증 SIMNM 감별)</p>
+          <p style="font-size:10px;color:var(--text2);margin-top:4px">※ 가이드라인은 "절대적 CK 기준치 없음(no absolute CK levels to guide therapy)"을 명시. 횡문근융해 정의 = CK &gt;10×ULN + 신손상(신기능 저하). <strong>&gt;40×ULN 기준은 원문에 없음.</strong> statin 중단 후 CK 지속 상승 시 → 신경과 협진 (SIMNM: 항HMGCR항체 확인, 면역억제 치료 필요)</p>
         </div>
       </div>
 
@@ -2073,7 +2073,7 @@
         <thead><tr><th>이상반응</th><th>빈도 / 특징</th><th>처치</th></tr></thead>
         <tbody>
           <tr><td>근육통 (myalgia)</td><td>흔함 (관찰연구 5–10%, RCT는 낮음)</td><td>이차 원인 배제 → statin 교체 또는 감량</td></tr>
-          <tr><td>횡문근융해</td><td>매우 드뭄 (1/10만명-년)</td><td>즉시 중단·입원·수액 치료</td></tr>
+          <tr><td>횡문근융해<br><small style="color:var(--text2)">CK &gt;10×ULN + 신손상</small></td><td>매우 드뭄 (1/10만명-년)</td><td>즉시 중단·입원·수액 치료, 신기능 모니터링</td></tr>
           <tr><td>SIMNM (면역 괴사근병증)</td><td>드뭄; statin 중단 후에도 진행</td><td>신경과 협진; 면역억제제 필요</td></tr>
           <tr><td>간효소 상승</td><td>고용량 시 드물게; 대부분 일시적</td><td>3×ULN 이상 지속 시 감량·교체</td></tr>
           <tr><td>신규 T2DM</td><td>메타분석: ~10% 상대 위험↑ (절대 위험 소)</td><td>statin 지속; 생활습관 강화</td></tr>
@@ -2422,7 +2422,7 @@ const abbrs = [
   ['OR','Odds Ratio (교차비) — 환자-대조군 연구의 이환율 비; 드문 사건에서 RR 근사치'],
   ['RR','Relative Risk / Risk Ratio (상대 위험비) — 치료군/대조군의 사건 발생률 비율'],
   ['AOR','Adjusted Odds Ratio (보정 교차비) — 교란변수 보정 후 교차비'],
-  ['ULN','Upper Limit of Normal (정상 상한치) — CK·ALT 등 검사 기준치의 정상 상한; SAMS 평가에 CK ×ULN 기준 사용'],
+  ['ULN','Upper Limit of Normal (정상 상한치) — CK·ALT 등 검사 기준치의 정상 상한. SAMS: CK ≥10×ULN + 증상 → statin 중단; 횡문근융해 = CK >10×ULN + 신손상. 가이드라인은 절대 기준치 없음(no absolute CK levels) 명시; >40×ULN은 원문 기준 아님'],
   ['CI','Confidence Interval (신뢰구간) — 추정치의 불확실성 범위; 95% CI가 1을 포함하면 통계적 비유의'],
   ['SNP','Single Nucleotide Polymorphism (단일 염기 다형성) — 개인 간 유전 변이; PRS 계산의 기본 단위'],
   // ── 검사·진단 ──
