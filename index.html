@@ -292,7 +292,7 @@
     margin-bottom: 1px;
   }
   .sp-body { padding: 0; max-height: 0; overflow: hidden; transition: max-height .3s ease, padding .3s; }
-  .sp-body.open { max-height: 1200px; padding: 8px 0; }
+  .sp-body.open { max-height: 4000px; padding: 8px 0; }
 
   /* ── SCROLLBAR ── */
   ::-webkit-scrollbar { width: 5px; height: 5px; }
@@ -1882,25 +1882,83 @@
       <div class="sp-section">
         <div class="sp-title" onclick="toggleSp(this)">💊 Statin 주요 약물 상호작용 (DDI) <span>▸</span></div>
         <div class="sp-body">
-          <table class="bp-table" style="font-size:11px">
+
+          <p style="font-size:11px;line-height:1.7;color:var(--text2);margin-bottom:8px">대부분의 statin 관련 DDI는 <strong>cytochrome P450(CYP3A4·CYP2C9)</strong>과 약물 수송체(P-glycoprotein, OATP, BCRP)를 통해 매개된다. CYP3A4는 약물대사에서 가장 흔하게 관여하는 효소이므로, CYP3A4로 대사되는 <strong>lovastatin·simvastatin·atorvastatin</strong>이 임상적으로 의미 있는 DDI를 가장 많이 나타낸다. statin 처방정보에 기재된 DDI 중 약 절반은 전용 임상시험으로 확인되었고, 약 34%는 다른 statin 자료에서 추정(extrapolation)된 것이다.</p>
+
+          <p style="font-size:10px;font-weight:700;color:var(--accent2);text-transform:uppercase;letter-spacing:.3px;margin-bottom:4px">Statin별 대사 경로 (약동학)</p>
+          <div style="overflow-x:auto;margin-bottom:8px">
+          <table class="bp-table" style="font-size:10px;min-width:480px">
+            <thead><tr><th>Statin</th><th>주 대사효소</th><th>지용성</th><th>신장배설(%)</th><th>반감기</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Atorvastatin</strong></td><td style="color:var(--red)">CYP3A4</td><td>지용성 (log P 4.1)</td><td>&lt;2</td><td>14h</td></tr>
+              <tr><td><strong>Lovastatin</strong></td><td style="color:var(--red)">CYP3A4</td><td>지용성 (log P 4.3)</td><td>10</td><td>2–3h</td></tr>
+              <tr><td><strong>Simvastatin</strong></td><td style="color:var(--red)">CYP3A4</td><td>지용성 (log P 4.7)</td><td>13</td><td>2h</td></tr>
+              <tr><td>Fluvastatin</td><td style="color:var(--accent2)">CYP2C9 (2C8·3A4 미미)</td><td>지용성 (log P 3.2)</td><td>5</td><td>3h</td></tr>
+              <tr><td>Pitavastatin</td><td style="color:var(--accent2)">CYP2C9 (2C8 미미)</td><td>지용성 (log P 1.5)</td><td>15</td><td>12h</td></tr>
+              <tr><td>Rosuvastatin</td><td style="color:var(--accent2)">CYP2C9</td><td>친수성 (log P −0.3)</td><td>10</td><td>19h</td></tr>
+              <tr><td><strong>Pravastatin</strong></td><td style="color:var(--green)">CYP450 미경유</td><td>친수성 (log P −0.2)</td><td>20</td><td>1.8h</td></tr>
+            </tbody>
+          </table>
+          </div>
+          <div class="alert alert-info" style="margin-bottom:10px"><span>📌</span><div><strong>임상 함의:</strong> CYP3A4 대사 statin(빨강)이 DDI 위험 최상위. CYP2C9 대사 statin(주황)은 중간 위험. CYP450을 거치지 않는 <strong>pravastatin</strong>(초록)이 DDI 위험이 가장 낮음 — DDI 회피 시 1차 대체 옵션. Atorvastatin·lovastatin·simvastatin은 P-glycoprotein 기질이기도 해 추가 상호작용 가능.</div></div>
+
+          <p style="font-size:10px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:.3px;margin-bottom:4px">병용 금기 / 병용 주의 약물 전체 목록</p>
+          <table class="bp-table" style="font-size:11px;margin-bottom:8px">
             <thead><tr><th>병용 금기 (모든 statin)</th><th>병용 주의 약물 (위험 감소 전략 적용)</th></tr></thead>
             <tbody>
               <tr>
-                <td style="vertical-align:top;color:var(--red)"><strong>Gemfibrozil</strong><br><small>근육병증 위험 극도로 증가</small></td>
-                <td style="font-size:10px">Amiodarone, Amlodipine, Diltiazem, Verapamil, Dronedarone, Cyclosporine, Clarithromycin, Erythromycin, Itraconazole, Ketoconazole, Posaconazole, Voriconazole, Fluconazole, Fenofibrate·fenofibric acid, Colchicine, Niacin ≥1g/d, Ranolazine, Warfarin, HIV PI 계열(atazanavir/r, lopinavir/r, darunavir/r, tipranavir/r 등), Boceprevir, Telaprevir, Lomitapide</td>
+                <td style="vertical-align:top;color:var(--red)"><strong>Gemfibrozil</strong><br><small>근육병증 위험 극도로 증가 — 모든 statin과 병용 회피</small></td>
+                <td style="font-size:10px">Amiodarone, Amlodipine, Atazanavir+ritonavir, Boceprevir, Clarithromycin, Cobicistat 함유제제, Colchicine, Cyclosporine, Danazol, Darunavir+ritonavir, Diltiazem, Dronedarone, Erythromycin, Fenofibrate, Fenofibric acid, Fluconazole, Fosamprenavir(±ritonavir), Itraconazole, Ketoconazole, Lomitapide, Lopinavir+ritonavir, Nefazodone, Nelfinavir, Niacin ≥1g/d, Nirmatrelvir+ritonavir(Paxlovid), Posaconazole, Ranolazine, Rifampin, Saquinavir+ritonavir, Telaprevir, Telithromycin, Tipranavir+ritonavir, Verapamil, Voriconazole, Warfarin</td>
               </tr>
             </tbody>
           </table>
+
+          <p style="font-size:10px;font-weight:700;color:var(--accent2);text-transform:uppercase;letter-spacing:.3px;margin-bottom:4px">약물별 정밀 용량조절 권고 (Table 27)</p>
+          <div style="overflow-x:auto;margin-bottom:8px">
+          <table class="bp-table" style="font-size:10px;min-width:480px">
+            <thead><tr><th>병용약물</th><th>Statin</th><th>임상 권고</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Amiodarone</strong></td><td>Lovastatin</td><td>40 mg/일로 용량 제한</td></tr>
+              <tr><td><strong>Amiodarone</strong></td><td>Simvastatin</td><td>20 mg/일로 용량 제한</td></tr>
+              <tr><td><strong>Amlodipine</strong></td><td>Lovastatin</td><td>20 mg/일로 용량 제한</td></tr>
+              <tr><td><strong>Amlodipine</strong></td><td>Simvastatin</td><td>20 mg/일로 용량 제한</td></tr>
+              <tr><td><strong>Bempedoic acid</strong></td><td>Pravastatin</td><td>40 mg/일로 용량 제한</td></tr>
+              <tr><td><strong>Bempedoic acid</strong></td><td>Simvastatin</td><td>20 mg/일로 용량 제한</td></tr>
+              <tr><td><strong>Colchicine</strong></td><td>전체 statin (Atorva·Fluva·Lova·Pitava·Prava·Rosuva·Simva)</td><td>병용 시 근육 관련 독성 면밀히 모니터링</td></tr>
+              <tr><td style="color:var(--red)"><strong>Conivaptan</strong></td><td>Lovastatin</td><td style="color:var(--red)">병용 회피</td></tr>
+              <tr><td style="color:var(--red)"><strong>Conivaptan</strong></td><td>Simvastatin</td><td style="color:var(--red)">병용 회피</td></tr>
+              <tr><td><strong>Diltiazem</strong></td><td>Lovastatin</td><td>20 mg/일로 용량 제한</td></tr>
+              <tr><td><strong>Diltiazem</strong></td><td>Simvastatin</td><td>10 mg/일로 용량 제한</td></tr>
+              <tr><td><strong>Dronedarone</strong></td><td>Lovastatin</td><td>10 mg/일로 용량 제한</td></tr>
+              <tr><td><strong>Dronedarone</strong></td><td>Simvastatin</td><td>10 mg/일로 용량 제한</td></tr>
+              <tr><td style="color:var(--red)"><strong>Gemfibrozil</strong></td><td>Atorvastatin</td><td style="color:var(--red)">병용 회피</td></tr>
+              <tr><td style="color:var(--red)"><strong>Gemfibrozil</strong></td><td>Lovastatin</td><td style="color:var(--red)">병용 회피</td></tr>
+              <tr><td style="color:var(--red)"><strong>Gemfibrozil</strong></td><td>Pitavastatin</td><td style="color:var(--red)">병용 회피</td></tr>
+              <tr><td style="color:var(--red)"><strong>Gemfibrozil</strong></td><td>Pravastatin</td><td style="color:var(--red)">병용 회피</td></tr>
+              <tr><td style="color:var(--red)"><strong>Gemfibrozil</strong></td><td>Rosuvastatin</td><td style="color:var(--red)">병용 회피</td></tr>
+              <tr><td style="color:var(--red)"><strong>Gemfibrozil</strong></td><td>Simvastatin</td><td style="color:var(--red)">병용 회피</td></tr>
+              <tr><td><strong>Lomitapide</strong></td><td>Lovastatin</td><td>50% 용량 감량</td></tr>
+              <tr><td><strong>Lomitapide</strong></td><td>Simvastatin</td><td>50% 용량 감량 + 20 mg/일 상한</td></tr>
+              <tr><td><strong>Ranolazine</strong></td><td>Lovastatin</td><td>임상적으로 필요하고 비-CYP3A4 statin 사용이 불가할 때 병용 가능</td></tr>
+              <tr><td><strong>Ranolazine</strong></td><td>Simvastatin</td><td>병용 시 20 mg/일 초과 금지</td></tr>
+              <tr><td><strong>Ticagrelor</strong></td><td>Atorvastatin</td><td>용량 제한 없이 병용 가능</td></tr>
+              <tr><td><strong>Ticagrelor</strong></td><td>Lovastatin·Simvastatin</td><td>40 mg/일로 용량 제한</td></tr>
+              <tr><td><strong>Verapamil</strong></td><td>Lovastatin</td><td>20 mg/일로 용량 제한</td></tr>
+              <tr><td><strong>Verapamil</strong></td><td>Simvastatin</td><td>10 mg/일로 용량 제한</td></tr>
+            </tbody>
+          </table>
+          </div>
+
           <div class="alert alert-warn" style="margin-top:8px">
             <span>🔑</span>
             <div>
-              <strong>DDI 대응 전략 3가지:</strong><br>
+              <strong>DDI 대응 전략 3가지 (2026 가이드라인 COR 1·B-NR 권고):</strong><br>
               ① 병용 약물 회피 (대체약 검색)<br>
               ② CYP3A4 비의존 statin으로 교체: <strong>Pravastatin, Rosuvastatin, Fluvastatin, Pitavastatin</strong><br>
-              ③ Statin 용량 제한 (예: atorvastatin ≤20 mg with certain PIs)
+              ③ Statin 용량 제한 (위 Table 27 참조; 예: amiodarone 병용 시 simvastatin ≤20 mg/일)
             </div>
           </div>
-          <p style="font-size:11px;margin-top:8px;color:var(--text2)">Simvastatin 80 mg: FDA 금기 (심한 근육병증). Lovastatin/Simvastatin: HIV PI 모두와 금기.</p>
+          <p style="font-size:11px;margin-top:8px;color:var(--text2)">Simvastatin 80 mg: FDA 금기 (심한 근육병증, SEARCH 연구 근거). Lovastatin/Simvastatin: HIV 단백분해효소 억제제(PI) 전체와 금기. <strong>모든 statin 개시 전 동반약물 검토 및 DDI 평가가 권고된다(COR 1, LOE B-NR)</strong> — statin 관련 이상반응 위험을 최소화하기 위함.</p>
         </div>
       </div>
 
